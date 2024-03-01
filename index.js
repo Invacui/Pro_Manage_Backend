@@ -29,10 +29,10 @@ const MONGO_URI  = process.env.MONGO_URI;
 const DB_NAME = process.env.DB_NAME;
 
 //===================================================SERVER-STATUS==========================================
-app.listen(PORT , BASE_URI, ()=>{
+app.listen(PORT ,BASE_URL, async()=>{
     //DB CONNECTION
-    const DB = mongoose.connect(MONGO_URI, {
-      dbName: DB_NAME,                           // Specify your database name here
+     mongoose.connect(MONGO_URI, {
+      dbName: 'To_Do_DB',                           // Specify your database name here
     })
     .then(()=>console.log("Successfull login to Mongo Server!!"))
     .catch(error=>console.log("Failed to login!!",error))
