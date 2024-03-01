@@ -24,6 +24,7 @@ app.use('/data' , data);
 env.config({path:'./Private.env'});
 const PORT = process.env.PORT || 3001;
 const BASE_URI = process.env.BASE_URI;
+const BASE_URL = process.env.BASE_URL;
 const MONGO_URI  = process.env.MONGO_URI;
 const DB_NAME = process.env.DB_NAME;
 

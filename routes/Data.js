@@ -5,6 +5,7 @@ const IsLoggedIn = require("../middleware/IsLoggedIn");
 const {
     FetchUserData,
     UpdateStatusTask,
+    SharedTask,
     UpdateFullTask,
     UpdateCheckList,
     DeleteTask,
@@ -13,6 +14,7 @@ const {
 
 data.get('/fetch_data',IsLoggedIn, FetchUserData);
 data.get('/get_task_analytics',IsLoggedIn, getTaskAnalytics);
+data.get('/sharedTask/:taskId', SharedTask);
 data.put('/task/status/:id',IsLoggedIn, UpdateStatusTask);
 data.put('/update_task/:id',IsLoggedIn, UpdateFullTask);
 data.put('/tasks/:taskId/checklist/:itemId',IsLoggedIn, UpdateCheckList);

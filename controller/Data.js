@@ -130,5 +130,20 @@ const getTaskAnalytics = async (req, res) => {
   }
 };
 
+const SharedTask = async(req,res)=>{
+  try {
+    const taskId = req.params.taskId;
+    const task = await List.findById(taskId);
+    
+    if (!task) {
+      return res.status(404).json({ Error: "Task not found" });
+    }
 
-module.exports = {FetchUserData,UpdateStatusTask,UpdateFullTask,UpdateCheckList,DeleteTask,getTaskAnalytics}
+    res.json({ task });
+  } catch (error) {
+    console.error("Error fetching shared task:", error);
+    res.status(500).json({ Error: error.message });
+  }
+}
+
+module.exports = {FetchUserData,UpdateStatusTask,UpdateFullTask,UpdateCheckList,DeleteTask,getTaskAnalytics,SharedTask}
